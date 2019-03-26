@@ -12,7 +12,7 @@ ExpenseTracker - application which allows users to keep track of information ove
 You can test all point with POSTMAN using the link below: 
 https://www.getpostman.com/collections/4295c910c04d0d890b50
 
-## Expected Routes
+## REST Routes
 
 | Return Type    | Route                 | Functionality            |
 |----------------|-----------------------|--------------------------|
