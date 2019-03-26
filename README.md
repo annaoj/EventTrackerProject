@@ -6,7 +6,7 @@ http://3.90.93.29:8080/ExpenseTrackerREST
 
 
 ## Overview
-ExpenseTracker - application which allows users to keep track of information over their expenses by creating, updating, deleting and get information about it. 
+ExpenseTracker - application which allows users to keep track of information over their expenses by creating, updating, deleting and getting information about it. 
 
 ## REST API description
 You can test all point with POSTMAN using the link below: 
