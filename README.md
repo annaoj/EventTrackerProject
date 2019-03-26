@@ -1,6 +1,6 @@
 ## Expense tracking application
 
-###ExpenseTracker
+### ExpenseTracker
 
 http://3.90.93.29:8080/ExpenseTrackerREST
 
