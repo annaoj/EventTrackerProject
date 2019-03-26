@@ -10,4 +10,6 @@ public interface ExpenseService {
 	public Expense findExpenseById(Integer id);
 
 	public Expense create(Expense expense);
+
+	Boolean delete(int id);
 }

@@ -20,7 +20,7 @@ public class Expense {
 	private String description;
 	private Double cost;
 	private Date date;
-	@JsonIgnore
+//	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "category_id")
 	private Category category;

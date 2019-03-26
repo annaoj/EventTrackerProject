@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -34,7 +35,6 @@ public class ExpenseController {
 	public Expense findExpenseById(@PathVariable("eid") Integer id,HttpServletResponse response, HttpServletRequest request) {
 		try {
 			Expense p = service.findExpenseById(id);
-			System.out.println(p + "############");
 			if (p == null) {
 				response.setStatus(404);
 			} else {
@@ -56,6 +56,7 @@ public class ExpenseController {
 	@PostMapping("expenses")
 	public Expense createExpenses(@RequestBody Expense expense, HttpServletResponse response, HttpServletRequest request) {
 		try {
+			System.out.println("controller.createExpenses(): "  + expense);
 			service.create(expense);
 			StringBuffer url = request.getRequestURL();
 			System.out.println("expenseController" + url.toString());
@@ -67,6 +68,26 @@ public class ExpenseController {
 		} catch (Exception e) {
 			response.setStatus(400);
 			return null;
+		}
+
+	}
+	
+
+	@DeleteMapping("expenses/{eid}")
+	public Boolean delete(@PathVariable("eid") Integer id, HttpServletResponse response, HttpServletRequest request) {
+		try {
+			if (service.findExpenseById(id) == null) {
+				response.setStatus(404);
+				return false;
+			} else {
+				service.delete(id);
+				response.setStatus(204);
+				return true;
+			}
+
+		} catch (Exception e) {
+			response.setStatus(409);
+			return false;
 		}
 
 	}

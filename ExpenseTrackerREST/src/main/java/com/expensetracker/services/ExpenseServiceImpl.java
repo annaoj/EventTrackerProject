@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.expensetracker.entities.Category;
 import com.expensetracker.entities.Expense;
 import com.expensetracker.repositories.ExpenseRepository;
 
@@ -23,21 +24,34 @@ public class ExpenseServiceImpl implements ExpenseService {
 	@Override
 	public Expense findExpenseById(Integer id) {
 		Optional<Expense> exp = repo.findById(id);
-		System.out.println(exp + "$$$$$$$$$$$$$$$$$$$$$$$$$$$");
 		if (exp.isPresent()) {
-			exp.get();
+			return exp.get();
 		}
 		return null;
 	}
 
 	@Override
 	public Expense create(Expense expense) {
-		System.out.println(expense + "%%%%%%%%%%%%%%%%%%%%%%%");
 		if (expense.getCategory() == null) {
-			expense.getCategory().setId(1);
+			Category cat = new Category();
+			cat.setId(1);
+			expense.setCategory(cat);
 		}
 
 		return repo.saveAndFlush(expense);
 	}
+	
+	@Override
+	public Boolean delete(int id) {
+		repo.deleteById(id);
+
+		if (repo.existsById(id)) {
+			return false;
+		} else {
+			return true;
+		}
+
+	}
+	
 
 }
