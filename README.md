@@ -21,6 +21,7 @@ https://www.getpostman.com/collections/4295c910c04d0d890b50
 | `Boolean`       |`DELETE api/expenses/{id}`| Deletes an expense by id|
 | `List<Expense>`    |`GET api/expenses/{id}` | Gets expense by id|
 | `Expense `   |`POST api/expenses` | Creates new expense|
+| `Expense `   |`PUT api/expenses/{id}` | Updates existing expense|
 
 ## Technologies used
     [1]: SpringMVC                
@@ -30,7 +31,7 @@ https://www.getpostman.com/collections/4295c910c04d0d890b50
     [5]: MySQL            
     [6]: JSP
     [7]: CRUD
-    [8]: JPA                
+    [8]: REST                
     [9]: Bootstrap            
     [10]:SpringBoot
     [11]:AWS
