@@ -52,6 +52,21 @@ public class ExpenseServiceImpl implements ExpenseService {
 		}
 
 	}
+
+	@Override
+	public Expense update(Integer id, Expense expense) {
+	       Optional<Expense> opt = repo.findById(id);
+	        if (opt.isPresent()) {
+	        	Expense managed = opt.get();
+	            managed.setName(expense.getName());
+	            managed.setDescription(expense.getDescription());
+	            managed.setDate(expense.getDate());
+	            managed.setCategory(expense.getCategory());
+	            repo.saveAndFlush(managed);
+	            return managed;
+	        }
+	        return null;
+	}
 	
 
 }

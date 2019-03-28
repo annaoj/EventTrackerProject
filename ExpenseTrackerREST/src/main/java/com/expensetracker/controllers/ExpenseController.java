@@ -10,14 +10,13 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.expensetracker.entities.Expense;
 import com.expensetracker.services.ExpenseService;
-
-
 
 @RestController
 @RequestMapping("api")
@@ -30,9 +29,10 @@ public class ExpenseController {
 	public List<Expense> findAllExpenses() {
 		return service.findAllExpenses();
 	}
-	
+
 	@GetMapping("expenses/{eid}")
-	public Expense findExpenseById(@PathVariable("eid") Integer id,HttpServletResponse response, HttpServletRequest request) {
+	public Expense findExpenseById(@PathVariable("eid") Integer id, HttpServletResponse response,
+			HttpServletRequest request) {
 		try {
 			Expense p = service.findExpenseById(id);
 			if (p == null) {
@@ -52,11 +52,12 @@ public class ExpenseController {
 			return null;
 		}
 	}
-	
+
 	@PostMapping("expenses")
-	public Expense createExpenses(@RequestBody Expense expense, HttpServletResponse response, HttpServletRequest request) {
+	public Expense createExpenses(@RequestBody Expense expense, HttpServletResponse response,
+			HttpServletRequest request) {
 		try {
-			System.out.println("controller.createExpenses(): "  + expense);
+			System.out.println("controller.createExpenses(): " + expense);
 			service.create(expense);
 			StringBuffer url = request.getRequestURL();
 			System.out.println("expenseController" + url.toString());
@@ -71,7 +72,6 @@ public class ExpenseController {
 		}
 
 	}
-	
 
 	@DeleteMapping("expenses/{eid}")
 	public Boolean delete(@PathVariable("eid") Integer id, HttpServletResponse response, HttpServletRequest request) {
@@ -91,6 +91,16 @@ public class ExpenseController {
 		}
 
 	}
-	
+
+	  @PutMapping("expenses/{eid}")
+	    public Expense putExpense(@PathVariable("eid") Integer id,
+	            @RequestBody Expense expense,
+	            HttpServletResponse resp) {
+		  expense = service.update(id, expense);
+	        if (expense == null) {
+	            resp.setStatus(404);
+	        }
+	        return expense;
+	    }
 
 }
