@@ -10,9 +10,16 @@ function init(){
 
 function saveExpense(e){
   let formid= e.currentTarget.form.id;
+  console.log(formid);
   let id = formid.split('-').pop();
+  console.log(id)
+  id = parseInt(id);
+  let cost = e.currentTarget.form.childNodes[3].value;
+//  cost= parseInt(cost);
+//  console.log(cost + "cost")
+
     let xhr = new XMLHttpRequest();
-    xhr.open('PUT', 'api/expenses/'+id);
+    xhr.open('PUT', 'api/expenses/'+id, true);
 
     xhr.setRequestHeader("Content-type", "application/json"); // Specify JSON request body
 
@@ -30,14 +37,15 @@ function saveExpense(e){
     };
     let expenseObj = {
        category:{
-           id:1
+           id:parseInt(e.currentTarget.form.childNodes[0].value)
        },
        name: e.currentTarget.form.childNodes[1].value,
        description:e.currentTarget.form.childNodes[2].value,
-       cost: e.currentTarget.form.childNodes[4].value,
+       cost: cost,
        date: new Date()
     }
 
+    console.log(expenseObj)
     xhr.send(JSON.stringify(expenseObj)); 
 }
 
@@ -87,7 +95,7 @@ const displayExpense = function(data){
         in1.value = data[i].category.id;
         in2.value = data[i].name;
         in3.value = data[i].description;
-        in5.value = data[i].cost;
+        in5.value = parseInt(data[i].cost);
 
         //create expandable div
         let tr2 = document.createElement('tr'); 

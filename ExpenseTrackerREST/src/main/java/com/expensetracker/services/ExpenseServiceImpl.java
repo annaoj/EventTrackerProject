@@ -61,6 +61,7 @@ public class ExpenseServiceImpl implements ExpenseService {
 	            managed.setName(expense.getName());
 	            managed.setDescription(expense.getDescription());
 	            managed.setDate(expense.getDate());
+	            managed.setCost(expense.getCost());
 	            managed.setCategory(expense.getCategory());
 	            repo.saveAndFlush(managed);
 	            return managed;
