@@ -10,7 +10,7 @@ function init(){
 
 function saveExpense(e){
   let formid= e.currentTarget.form.id;
-  let id=formid.substr(formid.length -2);
+  let id = formid.split('-').pop();
     let xhr = new XMLHttpRequest();
     xhr.open('PUT', 'api/expenses/'+id);
 
