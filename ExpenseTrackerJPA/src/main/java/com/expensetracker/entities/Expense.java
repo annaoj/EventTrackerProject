@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -19,7 +21,10 @@ public class Expense {
 	private String name;
 	private String description;
 	private Double cost;
+
+	@Temporal(TemporalType.DATE)
 	private Date date;
+	
 //	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "category_id")

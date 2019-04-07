@@ -22,7 +22,7 @@ class ExpenseTest {
 	public void setUp() throws Exception {
 		emf = Persistence.createEntityManagerFactory("EventTrackerProject");
 		em = emf.createEntityManager();
-		exp = em.find(Expense.class, 1);
+		exp = em.find(Expense.class, 24);
 	}
 
 	@AfterEach
@@ -33,13 +33,13 @@ class ExpenseTest {
 
 	@Test
 	public void test_expense_table() {
-		assertEquals(1, exp.getId());
+		assertEquals(24, exp.getId());
 		assertEquals("Target", exp.getName());
 	}
 	
 	@Test
 	public void test_expense_category_one_to_many_assosiation() {
-		assertEquals(1, exp.getId());
+		assertEquals(24, exp.getId());
 		assertEquals("Groceries", exp.getCategory().getName());
 	}
 
