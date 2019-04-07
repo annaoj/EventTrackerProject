@@ -1,0 +1,21 @@
+<table class="table table-striped">
+    <thead>
+        <th scope="col">Category</th>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">date</th>
+        <th scope="col">cost</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </thead>
+      <tr *ngFor="let expense of expenses" >
+  <td >{{expense.category.name}}</td>
+  <td >{{expense.name}}</td>
+  <td>{{expense.description}}</td>
+  <td >{{expense.date}}</td>
+  <td>{{expense.cost}}</td>
+
+  <td>Edit</td>
+  <td><span class="badge badge-danger" (click)='deleteExpense(expense)'>X</span></td>
+</tr>
+</table>
