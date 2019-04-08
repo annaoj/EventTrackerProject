@@ -18,7 +18,7 @@ export class ExpenseListComponent implements OnInit {
   // FIELDS
   expenses: Expense[] = [];
   displayedColumns: string[] = [
-    "check",
+    // "check",
     "category",
     "name",
     "description",
@@ -47,10 +47,12 @@ export class ExpenseListComponent implements OnInit {
     this.dataSource = new MatTableDataSource<Expense>(
       data.slice(pageIndex, pageIndex + pageSize)
     );
+    this.dataSource.paginator = this.paginator;
+
   }
   ngOnInit() {
     this.reload();
-    this.dataSource.paginator = this.paginator;
+   // this.dataSource.paginator = this.paginator;
   }
 
   // METHODS

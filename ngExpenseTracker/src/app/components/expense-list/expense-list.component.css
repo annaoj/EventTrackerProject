@@ -2,9 +2,12 @@ table {
   width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
-  min-width: 500px;
+  min-width: 200px;
 }
-
+.card{
+  margin: 60px;
+  min-width: 200px;
+}
 th.mat-header-cell {
   text-align: left;
   max-width: 300px;
