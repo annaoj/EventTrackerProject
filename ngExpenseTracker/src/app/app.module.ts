@@ -27,12 +27,16 @@ import {
 import {MatSelectModule} from '@angular/material/select';
 import { MatDatepickerModule} from '@angular/material/datepicker';
 import { MatMomentDateModule} from '@angular/material-moment-adapter';
+import { AboutComponent } from './components/about/about.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ExpenseListComponent,
-    MaterialDialogComponent
+    MaterialDialogComponent,
+    AboutComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

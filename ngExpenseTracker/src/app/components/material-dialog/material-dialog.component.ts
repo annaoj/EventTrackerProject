@@ -22,12 +22,6 @@ export class MaterialDialogComponent implements OnInit {
   selected: Expense = null;
   selectedCat = '';
 
-  // categoryVals = [
-  //   {value: '1', viewValue: 'Groceries'},
-  //   {value: '2', viewValue: 'Entertainment'},
-  //   {value: '3', viewValue: 'Bills'}
-  // ];
-
   constructor(
     private fb: FormBuilder,
     private dialogRef: MatDialogRef<MaterialDialogComponent>,
@@ -41,9 +35,6 @@ export class MaterialDialogComponent implements OnInit {
    }
 
   ngOnInit() {
-    // this.nameFormControl = new FormControl('', [
-    //   Validators.required
-    // ]);
     if (this.selected) {
       this.form = this.fb.group({
         id: [ this.selected.id, []],
@@ -72,6 +63,7 @@ export class MaterialDialogComponent implements OnInit {
   }
     save() {
     console.log(this.form.value);
+    console.log(this.form.value.date);
     this.form.value.category = {
       id: this.selectedCat
     };

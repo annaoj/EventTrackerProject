@@ -1,8 +1,8 @@
-
-
 <mat-drawer-container class="container-custom" autosize>
   <mat-drawer #drawer class="sidenav">
     <p>Menu</p>
+    <p><a  class="menulink" [routerLink]="['/dashboard']"> Home </a></p>
+    <p><a [routerLink]="['/about']"> About </a></p>
   </mat-drawer>
   <div class="sidenav-content">
     <mat-toolbar color="primary">
@@ -26,4 +26,4 @@
       </div>
       <app-expense-list></app-expense-list>
     </mat-drawer-container>
-
+    <router-outlet></router-outlet>

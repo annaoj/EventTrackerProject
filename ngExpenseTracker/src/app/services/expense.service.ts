@@ -46,6 +46,7 @@ export class ExpenseService{
 
   public create(expense: Expense) {
     console.log(expense);
+
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json'
