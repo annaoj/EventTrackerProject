@@ -8,8 +8,9 @@ http://3.90.93.29:8080/ExpenseTrackerREST
 ## Overview
 ExpenseTracker - application which allows users to keep track of information over their expenses by creating, updating, deleting and getting information about it. 
 
-## Front end - Angular Material UI 
+## Front end - Angular Material UI and ChartJs
 This application uses Angular 7 and Angular Material UI libraries.
+ChartJs is used to disply graphs
 
 ### RxJS is used for making http requests
 The HttpClient from Angular makes use of rxjs with its http calls by returning an Observable<> object as a response. Observables wrap the standard XMLHttpRequests and allow us to manipulate the response in useful ways.
