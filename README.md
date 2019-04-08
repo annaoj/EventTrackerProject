@@ -8,6 +8,20 @@ http://3.90.93.29:8080/ExpenseTrackerREST
 ## Overview
 ExpenseTracker - application which allows users to keep track of information over their expenses by creating, updating, deleting and getting information about it. 
 
+## Front end - Angular Material UI 
+This application uses Angular 7 and Angular Material UI libraries.
+
+### RxJS is used for making http requests
+The HttpClient from Angular makes use of rxjs with its http calls by returning an Observable<> object as a response. Observables wrap the standard XMLHttpRequests and allow us to manipulate the response in useful ways.
+
+### Components are used:
+    [1]: Side drawer
+    [2]:Table 
+    [3]: Pop Up Dialog
+    [4]: Tools menu
+    [5]: Forms
+    [6]: DatePicker
+
 ## REST API description
 You can test all point with POSTMAN using the link below: 
 https://www.getpostman.com/collections/4295c910c04d0d890b50
@@ -36,4 +50,6 @@ https://www.getpostman.com/collections/4295c910c04d0d890b50
     [10]:SpringBoot
     [11]:AWS
     [12]:J-Unit
+    [13]:Angular- 7
+    [14]:RXJs
     
