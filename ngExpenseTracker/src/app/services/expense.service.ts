@@ -3,15 +3,18 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Expense } from '../models/expense';
 import { catchError, tap } from 'rxjs/operators';
 import { throwError } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class ExpenseService{
+export class ExpenseService {
 
   // Fields
-  private baseUrl = 'http://localhost:8087/';
+  // private baseUrl = 'http://localhost:8087/';
+  private baseUrl = environment.baseUrl;
+
   private url = this.baseUrl + 'api/expenses';
 
   constructor(
