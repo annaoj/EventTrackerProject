@@ -1,11 +1,13 @@
 import { Category } from './category';
 export class Expense {
+  id: number;
   name: string;
   description: string;
   cost: number;
   date: string;
   category: Category;
   constructor(
+    id?: number ,
     name: string = '',
     description: string = '',
     cost?: number,
@@ -15,6 +17,7 @@ export class Expense {
       name?: string
     }
   ) {
+    this.id = id;
     this.name = name;
     this.description = description;
     this.cost = cost;

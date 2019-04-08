@@ -1,0 +1,11 @@
+.container-custom{
+  position: absolute;
+  top:0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+.container-custom .mat-drawer{
+  padding: 20px;
+  min-width: 200px;
+}

@@ -33,4 +33,47 @@ export class ExpenseService{
                })
           );
   }
+
+  destroy(id: number) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+      })
+    };
+    console.log(id);
+    return this.http.delete<any>(this.url + '/' + id, httpOptions);
+  }
+
+  create(expense: Expense) {
+    console.log(expense);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+      })
+    };
+    return this.http.post<any>(this.url, expense, httpOptions);
+  }
+
+  public update(expense: Expense) {
+    console.log(expense);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+      })
+    };
+    // if ( todo.completed) {
+    //   todo.completeDate = this.datePipe.transform(Date.now(), 'shortDate');
+    // } else {
+    //   todo.completeDate = '';
+    // }
+
+    return this.http.put<Expense>(`${this.url}/${expense.id}`, expense, httpOptions).pipe(
+      catchError((err: any) => {
+        console.error('ExpenseService.update(): Error');
+        console.error(err);
+        return throwError('Error in ExpenseService.update()');
+      })
+    );
+  }
+
 }

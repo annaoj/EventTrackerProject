@@ -1,1 +1,28 @@
-<app-expense-list></app-expense-list>
+<mat-drawer-container class="container-custom" autosize>
+  <mat-drawer #drawer class="sidenav">
+    <p>Menu</p>
+  </mat-drawer>
+  <div class="sidenav-content">
+    <mat-toolbar color="primary">
+      <mat-toolbar-row color="primary">
+        <button mat-icon-button (click)="drawer.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span>Expense Tracker</span>
+            <span class="spacer"></span>
+            <mat-icon>favorite</mat-icon>
+            <button mat-icon-button [matMenuTriggerFor]="menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item>
+                <mat-icon>publish</mat-icon>
+                <span>Share</span>
+              </button>
+            </mat-menu>
+          </mat-toolbar-row>
+        </mat-toolbar>
+      </div>
+      <app-expense-list></app-expense-list>
+    </mat-drawer-container>
+

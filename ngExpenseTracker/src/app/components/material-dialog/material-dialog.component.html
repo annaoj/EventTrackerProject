@@ -1,0 +1,52 @@
+<h2 mat-dialog-title><span color="primary">{{header}}</span></h2>
+
+<mat-dialog-content >
+  <form class="expense-form" [formGroup]="form">
+  <mat-form-field class="expense-full-width">
+    <input  matInput formControlName="name" placeholder="Name" />
+  </mat-form-field>
+<br>
+  <mat-form-field class="expense-full-width">
+    <input matInput placeholder=" Description" formControlName="description" />
+  </mat-form-field>
+
+  <mat-form-field  class="expense-full-width">
+    <input
+      matInput
+      formControlName="date"
+      placeholder="Date"
+    />
+  </mat-form-field>
+
+  <mat-form-field  class="expense-full-width">
+    <input matInput
+    formControlName="cost"
+    placeholder="Cost" />
+  </mat-form-field>
+
+  <mat-form-field>
+      <mat-label>Select an option</mat-label>
+      <mat-select [(value)]="selectedCat">
+          <mat-option>None</mat-option>
+          <mat-option  value="1">Groceries</mat-option>
+          <mat-option  value="2">Entertainment</mat-option>
+          <mat-option  value="3">Bills</mat-option>
+          <mat-option  value="4">Health</mat-option>
+          <mat-option  value="5">Household</mat-option>
+          <mat-option  value="6">Shopping</mat-option>
+          <mat-option  value="7">Vehicle</mat-option>
+          <mat-option  value="8">Debt</mat-option>
+          <mat-option  value="9">Others</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <p>You selected: {{selectedCat}}</p>
+
+
+</form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close >Cancel</button>
+  <button  class="mat-raised-button mat-primary" (click)="save()">Save</button>
+</mat-dialog-actions>
