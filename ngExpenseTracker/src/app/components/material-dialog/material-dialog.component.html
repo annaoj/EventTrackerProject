@@ -14,9 +14,14 @@
     <input
       matInput
       formControlName="date"
+      [matDatepicker]="date"
       placeholder="Date"
     />
+    <mat-datepicker-toggle matSuffix [for]="date">
+    </mat-datepicker-toggle>
+    <mat-datepicker #date></mat-datepicker>
   </mat-form-field>
+
 
   <mat-form-field  class="expense-full-width">
     <input matInput

@@ -8,8 +8,13 @@ table {
 th.mat-header-cell {
   text-align: left;
   max-width: 300px;
+  font-size: 18px;
 }
 .create-btn{
   float: right;
   margin-right: 20px;
+}
+.totalCost{
+  font-weight: bold;
+  color: blueviolet;
 }

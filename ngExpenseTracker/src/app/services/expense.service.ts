@@ -44,7 +44,7 @@ export class ExpenseService{
     return this.http.delete<any>(this.url + '/' + id, httpOptions);
   }
 
-  create(expense: Expense) {
+  public create(expense: Expense) {
     console.log(expense);
     const httpOptions = {
       headers: new HttpHeaders({
@@ -61,11 +61,6 @@ export class ExpenseService{
         'Content-Type':  'application/json'
       })
     };
-    // if ( todo.completed) {
-    //   todo.completeDate = this.datePipe.transform(Date.now(), 'shortDate');
-    // } else {
-    //   todo.completeDate = '';
-    // }
 
     return this.http.put<Expense>(`${this.url}/${expense.id}`, expense, httpOptions).pipe(
       catchError((err: any) => {

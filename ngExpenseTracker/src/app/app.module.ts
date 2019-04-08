@@ -25,6 +25,8 @@ import {
   MatRippleModule
 } from '@angular/material';
 import {MatSelectModule} from '@angular/material/select';
+import { MatDatepickerModule} from '@angular/material/datepicker';
+import { MatMomentDateModule} from '@angular/material-moment-adapter';
 
 @NgModule({
   declarations: [
@@ -54,7 +56,10 @@ import {MatSelectModule} from '@angular/material/select';
     MatFormFieldModule,
     MatInputModule,
     MatRippleModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDatepickerModule,
+    MatMomentDateModule
+
   ],
   providers: [ExpenseService],
   bootstrap: [AppComponent],

@@ -45,7 +45,7 @@
     <ng-container matColumnDef="cost">
         <th mat-header-cell *matHeaderCellDef> Cost </th>
         <td mat-cell *matCellDef="let element"> {{element.cost}} </td>
-        <td mat-footer-cell *matFooterCellDef>$100.00</td>
+        <td class="totalCost"  mat-footer-cell *matFooterCellDef>Total: {{totalCost}}</td>
       </ng-container>
 
   <ng-container matColumnDef="update">

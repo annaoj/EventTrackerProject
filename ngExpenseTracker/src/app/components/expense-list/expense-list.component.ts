@@ -29,6 +29,7 @@ export class ExpenseListComponent implements OnInit {
   ];
   dataSource = new MatTableDataSource<Expense>();
   isChecked = false;
+  totalCost = 0;
 
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -46,11 +47,9 @@ export class ExpenseListComponent implements OnInit {
   // METHODS
 
   openCreateDialog() {
-
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-
 
     let updatedExpense = null;
     const dialogRef = this.dialog.open(MaterialDialogComponent, dialogConfig);
@@ -119,11 +118,20 @@ export class ExpenseListComponent implements OnInit {
         this.dataSource = new MatTableDataSource<Expense>(data);
         this.dataSource.sort = this.sort;
         console.log('just got data');
+        this.getTotal(this.expenses);
       },
       err => {
         console.error(err);
       }
     );
+  }
+
+  getTotal(expenses) {
+    let sum = 0;
+    expenses.forEach(element => {
+      sum = sum + element.cost;
+    });
+    this.totalCost = sum;
   }
 
   deleteExpense(id: number) {
